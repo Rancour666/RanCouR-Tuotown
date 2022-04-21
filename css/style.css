@@ -200,6 +200,10 @@ h6 {
 body {
   background-color: #555555;
 }
+.lock body {
+  overflow: hidden;
+  touch-action: none;
+}
 @media (max-width: 47.99875em) {
   .lock body {
     overflow: hidden;
@@ -479,7 +483,7 @@ body {
   top: 1.125rem;
   left: 50%;
   z-index: 10;
-  transform: translate(-50%) rotateX(360deg);
+  transform: translate(-50%) rotateX(0deg);
 }
 @media (max-width: 47.99875em) {
   .header__logo {
@@ -504,7 +508,7 @@ body {
 .menu-open .right-header {
   position: fixed;
   top: 1.5rem;
-  right: 0.9375rem;
+  right: 3rem;
 }
 @media (max-width: 47.99875em) {
   .right-header {
@@ -562,8 +566,8 @@ body {
 
 .icon-menu {
   position: relative;
-  width: 30px;
-  height: 18px;
+  width: 1.875rem;
+  height: 1.375rem;
   cursor: pointer;
   z-index: 5;
   transition: all 0.3s ease 0s;
@@ -936,7 +940,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 15.125rem;
+  opacity: 0;
+}
+.welcome__slider-bullets._watcher-view {
   gap: 2.625rem;
+  opacity: 1;
+  transition: all 0.9s ease-out 0.9s;
 }
 
 .welcome__controlls {
@@ -1010,6 +1020,10 @@ body {
   font-family: "Jura";
   font-size: 2.5625rem;
   line-height: 117%;
+  position: relative;
+  left: 50%;
+  opacity: 0;
+  transform: scale(1.6);
 }
 @media (min-width: 90em) {
   .body-welcome__title {
@@ -1041,10 +1055,20 @@ body {
     padding-bottom: 0.9375rem;
   }
 }
+.body-welcome__title._watcher-view {
+  transform: scale(1);
+  left: 0;
+  opacity: 1;
+  transition: all 1.2s ease-out 0.3s;
+}
 
 .body-welcome__subtitle {
   font-family: "Montserrat";
   line-height: 121%;
+  position: relative;
+  left: 50%;
+  opacity: 0;
+  transform: scale(1.6);
 }
 @media (min-width: 90em) {
   .body-welcome__subtitle {
@@ -1076,6 +1100,23 @@ body {
     padding-bottom: 0.625rem;
   }
 }
+.body-welcome__subtitle._watcher-view {
+  transform: scale(1);
+  left: 0;
+  opacity: 1;
+  transition: all 1.2s ease-out 0.6s;
+}
+
+.body-welcome__button {
+  position: relative;
+  left: 50%;
+  opacity: 0;
+}
+.body-welcome__button._watcher-view {
+  transition: all 1.2s ease-out 0.9s;
+  left: 0;
+  opacity: 1;
+}
 
 .knife-tabs {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -1083,15 +1124,24 @@ body {
 
 .tabs__navigation {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   padding-top: 3.75rem;
   padding-bottom: 3.75rem;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
 }
 @media (max-width: 33.75rem) {
   .tabs__navigation {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+  }
+}
+@media (max-width: 47.99875em) {
+  .tabs__navigation {
+    padding-top: 2.5rem;
+    padding-bottom: 1.25rem;
   }
 }
 
@@ -1105,6 +1155,12 @@ body {
 
 .tab-label__icon {
   font-size: 2.875rem;
+}
+
+@media (max-width: 47.99875em) {
+  .tab-label__title {
+    font-size: 0.75rem;
+  }
 }
 
 .kitchen-knifes__first-grid,
@@ -1243,6 +1299,11 @@ body {
   font-size: 1.0625rem;
   line-height: 1.6470588235;
 }
+@media (max-width: 29.99875em) {
+  .main-tab-title {
+    font-size: 0.9375rem;
+  }
+}
 
 .main-tab-title__icon {
   font-weight: 600;
@@ -1374,10 +1435,20 @@ body {
 
 .gridcell-1 {
   order: 1;
+  transform: rotateY(-180deg);
+}
+.gridcell-1._watcher-view {
+  transition: all 2s ease 0s;
+  transform: rotateY(0deg);
 }
 
 .gridcell-3 {
   order: 3;
+  transform: rotateY(-180deg);
+}
+.gridcell-3._watcher-view {
+  transition: all 2s ease 0.2s;
+  transform: rotateY(0deg);
 }
 @media (max-width: 33.75rem) {
   .gridcell-3 {
@@ -1387,18 +1458,38 @@ body {
 
 .gridcell-4 {
   order: 4;
+  transform: rotateY(-180deg);
+}
+.gridcell-4._watcher-view {
+  transition: all 2s ease 0.4s;
+  transform: rotateY(0deg);
 }
 
 .gridcell-5 {
   order: 5;
+  transform: rotateY(-180deg);
+}
+.gridcell-5._watcher-view {
+  transition: all 2s ease 0.6s;
+  transform: rotateY(0deg);
 }
 
 .gridcell-6 {
   order: 6;
+  transform: rotateY(-180deg);
+}
+.gridcell-6._watcher-view {
+  transition: all 2s ease 0.8s;
+  transform: rotateY(0deg);
 }
 
 .gridcell-7 {
   order: 7;
+  transform: rotateY(-180deg);
+}
+.gridcell-7._watcher-view {
+  transition: all 2s ease 1s;
+  transform: rotateY(0deg);
 }
 @media (max-width: 33.75rem) {
   .gridcell-7 {
@@ -1408,6 +1499,11 @@ body {
 
 .gridcell-8 {
   order: 8;
+  transform: rotateY(-180deg);
+}
+.gridcell-8._watcher-view {
+  transition: all 2s ease 1.2s;
+  transform: rotateY(0deg);
 }
 
 .tabs__mail-block {
@@ -1677,6 +1773,13 @@ input:-webkit-autofill:focus {
   bottom: 0;
   left: 0;
   transition: all 0.3s ease 0s;
+}
+@media (max-width: 47.99875em) {
+  .card-item__title {
+    border-radius: 0px 0px 14px 14px;
+    background-color: rgba(200, 0, 0, 0.7058823529);
+    width: 100%;
+  }
 }
 
 .interesting__mail-block {
@@ -2035,6 +2138,10 @@ button.swiper-pagination-bullet {
 .swiper-pagination-bullet-active {
   opacity: var(--swiper-pagination-bullet-opacity, 1);
   background: var(--swiper-pagination-color, var(--swiper-theme-color));
+}
+
+span.swiper-pagination-bullet-active {
+  color: #C80000;
 }
 
 .swiper-pagination-vertical.swiper-pagination-bullets,
